@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="no-cache, no-store, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT"> 
+
+    <title>IoTtalk Video Panel</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/CamControl.js"></script>
+  </head>
+
+  <body style="background-color: #e9e9e9;">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7">
+          <div class="row">
+            <div class="col-sm-12">
+               <a href="#" id="pop">
+                <picture>
+                  <div class="container">
+                    <img alt="" id="imageresource" class="img-rounded, ImgPosition" onerror="reloadImage(this)"   /> 
+                  </div>
+                </picture>
+               </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">							 
+
+            </div>
+          </div>
+          
+          <div class="row" style="padding-left: 23px;padding-right: 9px;margin-top: 10px;">
+            <div class="col-xs-2">
+              <button class="icons-1 material-button" onclick="ImgTele();">
+						    <i class="fa fa-plus material-icons" style="font-size: 26px;" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="col-xs-2">
+              <button class="icons-1 material-button" onclick="ImgWide();">
+                <i class="fa fa-minus material-icons" style="font-size: 26px;" aria-hidden="true"></i>
+			         </button>
+            </div>
+            
+            <div class="col-xs-2">
+              <button class="icons-1 material-button" style="background-color: #73cd5c;" onclick="ImgResetPos()">
+						    <div class="fa fa-circle" style="font-size: 26px; color:white;"></div>
+              </button>
+            </div>
+              
+            <div class="col-xs-2">
+              <button class="icons-2 material-button" onclick="ImgMoveUp()">
+						    <div class="top-triangle"></div>
+              </button>
+            </div>
+              
+            <div class="col-xs-2">
+              <button class="icons-2 material-button" onclick="ImgMoveDown()">	
+						    <div class="bottom-triangle"></div>
+              </button>
+            </div>
+              
+            <div class="col-xs-2">
+              <button class="icons-3 material-button" onclick="ImgMoveLeft()">
+						    <div class="left-triangle"></div>
+		          </button>
+            </div>
+              
+            <div class="col-xs-2">
+		          <button class="icons-3 material-button" onclick="ImgMoveRight()">
+                <div class="right-triangle"></div>
+              </button>
+            </div> 
+          </div>
+		    </div>
+
+        <div class="col-sm-5">      
+          <iframe id="iframe1"  frameborder="0" allowtransparency="true"  scrolling="yes"></iframe>
+          <iframe id="iframe2"  frameborder="0" allowtransparency="true"  scrolling="yes"></iframe>
+        </div>
+
+      </div>
+    </div>
+
+  <iframe id="retframe" name="retframe" frameborder="0" style="display:none;"></iframe>
+  </body>
+
+<script>
+  parent.retframe.location.href='http://' + ADDR_IP_CAM + ':' + PORT_IP_CAM_API + '/cgi-bin/camctrl/camctrl.cgi?' + 'recall=PresetLocation';
+  document.getElementById("imageresource").src = "http://" + ADDR_IP_CAM + ":" + PORT_IP_CAM_API + "/" + VIDEO_FILE_NAME;
+  document.getElementById("iframe1").src = ADDR_iframe1;
+  document.getElementById("iframe1").style = "height:" + height_iframe1 +"; width:100%;";
+  document.getElementById("iframe2").src = ADDR_iframe2;
+  document.getElementById("iframe2").style = "height:" + height_iframe2 +"; width:100%;";
+
+</script>
+
+</html>
+
+
