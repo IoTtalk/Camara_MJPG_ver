@@ -144,10 +144,12 @@ function ImgMoveLeft(){
 }
 
 function ImgResetPos(){
+    ImgScale = 1;
     HorizontalPosition = 0;
     VerticalPosition = 0;
     $('#imageresource').css('top', VerticalPosition.toString() +'px');
     $('#imageresource').css('left', HorizontalPosition.toString() +'px');
+    $('#imageresource').css('transform', 'scale('+ ImgScale.toString() +')');
 }
 
 var tidSubmitPresetPre = null;
